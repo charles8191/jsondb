@@ -1,6 +1,6 @@
 let fs = require("fs");
 function loadDB(databaseFile) {
-  let _db, db;
+  let _db;
   if (fs.existsSync(databaseFile)) {
     _db = JSON.parse(fs.readFileSync(databaseFile, "utf8"));
   } else {
