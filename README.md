@@ -7,8 +7,8 @@
 All you need to do is to use `loadDB`. Here is an example:
 
 ```javascript
-let { loadDB } = require("jsondb");
-let db = loadDB("db.json");
+let { DB } = require("jsondb");
+let db = new DB("db.json");
 ```
 
 ## Setting values
@@ -16,8 +16,9 @@ let db = loadDB("db.json");
 You do it just like any JavaScript object. Here is an example:
 
 ```javascript
-db["bits"] = 64;
-db.bits = 64; // this also works
+db.v["bits"] = 64;
+db.v.bits = 64; // this also works
+db.update();
 ```
 
 ## Getting values
@@ -25,6 +26,6 @@ db.bits = 64; // this also works
 Again, it's just like any JS object. Here is an example:
 
 ```javascript
-let bits = db["bits"];
-bits = db.bits; // that also works
+let bits = db.v["bits"];
+bits = db.v.bits; // that also works
 ```
