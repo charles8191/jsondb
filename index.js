@@ -1,5 +1,5 @@
 let fs = require("fs");
-function loadDB(databaseFile) {
+function DB(databaseFile) {
   let _db;
   if (fs.existsSync(databaseFile)) {
     _db = JSON.parse(fs.readFileSync(databaseFile, "utf8"));
@@ -16,4 +16,4 @@ function loadDB(databaseFile) {
     }
   }
 }
-exports.loadDB = loadDB;
+exports.DB = DB;
