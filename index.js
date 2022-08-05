@@ -7,11 +7,13 @@ function loadDB(databaseFile) {
     fs.writeFileSync(databaseFile, JSON.stringify({}));
     _db = {};
   }
-  return new Proxy(_db, {
-    set: function (target, key, value) {
-      target[key] = value;
-      fs.writeFileSync(databaseFile, JSON.stringify(target));
-    },
-  });
+  return class {
+    constructor() {
+      this.v = _db
+      this.update = function() {
+        fs.writeFileSync(databaseFile, JSON.stringify(this.v));
+      }
+    }
+  }
 }
 exports.loadDB = loadDB;
